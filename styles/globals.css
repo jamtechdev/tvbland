@@ -1,26 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Inter', sans-serif !important;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.back-color-section {
+  background-color: #efefef;
+  padding: 100px 0 250px;
 }
 
-* {
-  box-sizing: border-box;
+.list-section {
+  margin: -150px 0 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.show-detail {
+  margin: 10px 0;
+}
+
+.show-detail .show-img img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.show-detail-content {
+  margin: 10px 0 0;
+}
+
+.show-detail-content .show-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 14px;
+}
+
+.show-detail-content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+
+
+/* Responsive-start */
+
+@media(max-width:640px) {
+  .back-color-section {
+    padding: 50px 0 50px !important;
   }
-  body {
-    color: white;
-    background: black;
+
+  .list-section {
+    margin: 20px 0 0 !important;
   }
+
+  .show-detail .show-img img {
+    height: 200px !important;
+  }
+
 }
+
+/* Responsive-end */
