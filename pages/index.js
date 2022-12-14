@@ -1,6 +1,19 @@
 import Image from "next/image";
+import * as AppAction from "../apiAction";
+import React, { useState, useEffect } from "react";
+import ReactStars from "react-rating-stars-component";
 
 export default function Home() {
+const [shows, setShow] = useState();
+  useEffect(() => {
+    AppAction.getData().then((res) => {
+      if (res) {
+        setShow(res.data);
+      }
+    });
+  },[]);
+
+
   return (
     <section>
       <section className="back-color-section">
@@ -27,332 +40,37 @@ export default function Home() {
               <h4 className="mb-4">Last Added Shows</h4>
             </div>
           </div>
-          <div className="row">
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
+          <div className="row" >
+          {
+            shows && shows?.map((item, index) => {
+              // console.log(11111,item.show.image.original)
+              return(
+            <div  key={index} className="col-xl-2 col-lg-3 col-md-6 col-6">
               <div className="show-detail">
                 <div className="show-img">
                   <Image
                     width="0"
                     height="0"
                     sizes="100vw"
-                    src="/images/placeholder.jpg"
+                    src={item?.show.image.original}
                     alt=""
                   />
                 </div>
                 <div className="show-detail-content">
                   <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
+                  <ReactStars size={20} value={item?.show.rating.average} edit={false} count={10}/>
                   </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
+                  <div dangerouslySetInnerHTML={{ __html: (item?.show.summary) }}/>
+
                 </div>
               </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-3 col-md-6 col-6">
-              <div className="show-detail">
-                <div className="show-img">
-                  <Image
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    src="/images/placeholder.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="show-detail-content">
-                  <div className="show-rating">
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+            </div>  
+              )
+            }
+            )
+          }
+               </div>
+         
         </div>
       </section>
     </section>
