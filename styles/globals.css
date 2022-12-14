@@ -46,6 +46,82 @@ body {
   margin: 10px 0 0;
 }
 
+.single_page_main {
+  background-color: #efefef;
+  height: 367px;
+}
+
+.single_page_para {
+  font-size: 13px;
+}
+
+.single_sec_col {
+  padding: 14px 20px;
+}
+
+.single_show-rating {
+  font-size: 11px;
+}
+
+.show_info {
+  height: auto !important;
+}
+
+.show_info li {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-weight: 800;
+  padding: 18px 0;
+}
+
+.show_info span {
+  color: gray;
+  font-weight: 400;
+}
+
+.show_info_1 {
+  margin-left: 71px;
+}
+
+.show_info_2 {
+  margin-left: 72px;
+}
+
+.show_info_3 {
+  margin-left: 100px;
+}
+
+.show_info1 i {
+  background: gray;
+  padding: 11px 12px;
+  border-radius: 76px;
+  font-size: 10px;
+  color: white;
+}
+
+.show_info1 li {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 15px 0;
+}
+
+.show_info_4 {
+  margin-left: 30px;
+}
+
+.show_info_sp {
+  margin-left: 100px;
+}
+
+.heads {
+  margin-left: 10px;
+}
+
+
+
+
 
 /* Responsive-start */
 
@@ -54,12 +130,74 @@ body {
     padding: 50px 0 50px !important;
   }
 
+  .show_col_info {
+    margin-top: 0 !important;
+  }
+
   .list-section {
     margin: 20px 0 0 !important;
   }
 
   .show-detail .show-img img {
     height: 200px !important;
+  }
+
+  .single_page_main {
+    background-color: #efefef;
+    height: auto;
+  }
+
+  .single_show-rating {
+    font-size: 14px;
+  }
+
+  .show_col {
+    margin-top: 0 !important;
+  }
+
+  .show_info_sp {
+    display: flex;
+    margin-top: -8px;
+    margin-left: 56px;
+    font-size: 10px;
+    vertical-align: text-top;
+  }
+
+
+  .show_info1 i {
+    background: gray;
+    padding: 15px 16px;
+    border-radius: 76px;
+    font-size: 10px;
+    color: white;
+    position: relative;
+    text-align: 10px;
+    top: 9px;
+  }
+
+  .show_info_4 {
+    margin-left: 14px;
+    /* margin-top: 54px; */
+    position: relative;
+    top: 1px;
+  }
+
+  .show_info li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    width: 50%;
+    border: none;
+  }
+
+  .show_info span {
+    margin: 0 !important;
+  }
+
+  .show_info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 
 }
