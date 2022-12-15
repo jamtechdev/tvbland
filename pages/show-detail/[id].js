@@ -1,4 +1,28 @@
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from 'react';
+import * as AppAction from "../../apiAction";
+import ReactStars from "react-rating-stars-component";
+
+
 export default function Single() {
+  const router = useRouter();
+  const { id } = router.query
+  const [show, setShow] = useState();
+
+  useEffect(() => {
+    if (id) {
+      AppAction.getShowDetailById(id).then(res => {
+        setShow(res?.data)
+      }).catch((error)=>{
+        //Later replace with toasts
+         console.error(error); 
+        });
+    }
+
+  }, []);
+
+  console.log("DATA",show)
+
   return (
     <>
       {/* first-section-start */}
@@ -13,31 +37,21 @@ export default function Single() {
           </div>
           <div className="row mt-5">
             <div className="col-xl-2 col-lg-3 col-md-6 col-12 ml-5 col-sm-12">
-              <img src="/images/placeholder.jpg" className="w-100 img-fluid" />
+              <img src={show?.image.original} className="w-100 img-fluid" />
             </div>
             <div className="col-xl-8 col-lg-8 col-md-6 col-12 shingle_sec_col mt-3 mb-3 ">
-              <div className="single_show-rating mt-2">
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <span>4.2/5</span>
+              <div className="show-rating">
+                {show?.rating.average &&
+                  <ReactStars size={20} value={show?.rating.average} edit={false} count={10} />
+                }
+                {show?.rating.average}
               </div>
               <div className="mt-3">
                 <h3>
-                  This is the title of the TV show <br></br>Which is very long
-                  isn't it
+                  {show?.name}
                 </h3>
-                <p className="single_page_para">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting
-                  <br /> industry. Lorem Ipsum has been the industry's standard
-                  dummy text ever
-                  <br /> since the 1500s, when an unknown printer took a galley
-                  of type and scrambled
-                  <br />
-                </p>
+                <div dangerouslySetInnerHTML={{ __html: (show?.summary) }} />
+
               </div>
             </div>
           </div>
@@ -52,16 +66,24 @@ export default function Single() {
               <h3>Show Info</h3>
               <ul className="list-group show_info ">
                 <li className="list-group-item d-flex  align-items-center">
-                  Started on
-                  <span className="show_info_1">BBC Theme</span>
+                  Language
+                  <span className="show_info_1">{show?.language}</span>
                 </li>
                 <li className="list-group-item  align-items-center">
-                  Sechedule
-                  <span className="show_info_2">tuesday</span>
+                  Status
+                  <span className="show_info_2">{show?.status}</span>
                 </li>
                 <li className="list-group-item   align-items-center">
                   Genres
-                  <span className="show_info_3">Drama</span>
+                  <span className="show_info_3">{show?.genres.join(',')}</span>
+                </li>
+                <li className="list-group-item   align-items-center">
+                  Schedule
+                  <span className="show_info_3">{show?.schedule.days}</span>
+                </li>
+                <li className="list-group-item   align-items-center">
+                  Type
+                  <span className="show_info_3">{show?.type}</span>
                 </li>
               </ul>
             </div>

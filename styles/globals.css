@@ -120,7 +120,27 @@ body {
 }
 
 
+.show-detail-content p{
+  display: none;
+}
 
+.show-detail-content p:first-child {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  margin: 10px 0 0;
+}
+
+.show-img {
+  overflow: hidden;
+}
+
+.show-img:hover img {
+  transform: scale(1.2);
+  transition: all 1s;
+}
 
 
 /* Responsive-start */
