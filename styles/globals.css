@@ -20,12 +20,18 @@ body {
 }
 
 .img-fluid {
-  width: 100% !important;
-  height: 350px !important;
+  max-height: 350px !important;
   object-fit: cover;
-  position: absolute;
-  left: 0;
-  top: 10px;
+  height: 100% !important;
+}
+
+.back-color-section_main{
+  background-color: #efefef;
+}
+
+.list-section_main {
+  position: relative;
+  top: 30px;
 }
 
 .show-detail {
