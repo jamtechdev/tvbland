@@ -15,6 +15,18 @@ body {
 .list-section {
   margin: -150px 0 0;
 }
+.main_img_rme{
+  position: relative;
+}
+
+.img-fluid {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
 
 .show-detail {
   margin: 10px 0;
@@ -48,7 +60,6 @@ body {
 
 .single_page_main {
   background-color: #efefef;
-  height: 367px;
 }
 
 .single_page_para {
@@ -80,18 +91,6 @@ body {
   font-weight: 400;
 }
 
-.show_info_1 {
-  margin-left: 71px;
-}
-
-.show_info_2 {
-  margin-left: 72px;
-}
-
-.show_info_3 {
-  margin-left: 100px;
-}
-
 .show_info1 i {
   background: gray;
   padding: 11px 12px;
@@ -105,14 +104,6 @@ body {
   border-left: none;
   border-right: none;
   padding: 15px 0;
-}
-
-.show_info_4 {
-  margin-left: 30px;
-}
-
-.show_info_sp {
-  margin-left: 100px;
 }
 
 .heads {
@@ -142,12 +133,46 @@ body {
   transition: all 1s;
 }
 
+.show_info li .type_main_heading {
+  width: 35%;
+}
+
+.main_lsit_name{
+  width: 75%;
+}
+
+.main_lsit_name span{
+  font-size: 13px;
+  color: grey;
+}
+
+.user_profile_img{
+  margin-right: 30px;
+}
+
 
 /* Responsive-start */
+
+@media(max-width:992px){
+  .single_page_main{
+    height: 100%;
+  }
+
+  .img-fluid{
+    position: unset;
+  }
+}
 
 @media(max-width:640px) {
   .back-color-section {
     padding: 50px 0 50px !important;
+  }
+
+  body .main_lsit_name{
+    display: block !important;
+  }
+  .user_profile_img{
+    margin-right: 20px;
   }
 
   .show_col_info {
@@ -192,7 +217,6 @@ body {
     color: white;
     position: relative;
     text-align: 10px;
-    top: 9px;
   }
 
   .show_info_4 {
@@ -215,9 +239,9 @@ body {
   }
 
   .show_info {
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: row !important;
   }
 
 }
