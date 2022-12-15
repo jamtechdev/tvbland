@@ -51,7 +51,6 @@ export default function Single() {
                   {show?.name}
                 </h3>
                 <div dangerouslySetInnerHTML={{ __html: (show?.summary) }} />
-
               </div>
             </div>
           </div>
