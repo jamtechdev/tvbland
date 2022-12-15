@@ -20,7 +20,6 @@ body {
 }
 
 .img-fluid {
-  max-height: 350px !important;
   object-fit: cover;
   height: 100% !important;
 }

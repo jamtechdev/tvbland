@@ -101,7 +101,7 @@ export default function Single() {
                     <i className="fa-solid fa-user"></i>
                   </div>
                   <div className="d-flex main_lsit_name justify-content-between">
-                    <h6 className="mb-0">Starting</h6> <span>BBC Theme</span>
+                    <h6 className="mb-0">Starring</h6> <span>BBC Theme</span>
                   </div>
                 </li>
                 <li className="list-group-item d-flex align-items-center ">
@@ -109,7 +109,7 @@ export default function Single() {
                     <i className="fa-solid fa-user"></i>
                   </div>
                   <div className="d-flex main_lsit_name justify-content-between">
-                    <h6 className="mb-0">Starting</h6> <span>BBC Theme</span>
+                    <h6 className="mb-0">Starring</h6> <span>BBC Theme</span>
                   </div>
                 </li>
                 <li className="list-group-item d-flex align-items-center ">
@@ -117,7 +117,7 @@ export default function Single() {
                     <i className="fa-solid fa-user"></i>
                   </div>
                   <div className="d-flex main_lsit_name justify-content-between">
-                    <h6 className="mb-0">Starting</h6> <span>BBC Theme</span>
+                    <h6 className="mb-0">Starring</h6> <span>BBC Theme</span>
                   </div>
                 </li>
               </ul>
